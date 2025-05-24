@@ -1,0 +1,4 @@
+Contract ID: C123
+Property ID: P456
+Tenant ID: T789
+Rent Amount: 1500
