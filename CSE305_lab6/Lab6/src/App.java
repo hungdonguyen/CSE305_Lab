@@ -1,3 +1,4 @@
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -7,27 +8,28 @@ public class App {
         Contract contract = client.returnRentalContract();
         String contractInfo = contract.printInfo(contract);
 
-        // Save contract info to a .txt file (Not encrypted)
-        try (FileWriter writer = new FileWriter("contract.txt")) {
-            writer.write(contractInfo);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String secretKey = "11";
+        String originalString = contractInfo;
 
-        // Save encrypted contract info to a .txt file
-        String encryptedContractInfo;
-        try (FileWriter writer = new FileWriter("encrypted_contract.txt")) {
-            AESCipher aesCipher = new AESCipher();
-            encryptedContractInfo = aesCipher.encrypt(contractInfo);
-            writer.write(encryptedContractInfo);
-        } catch (IOException e) {
-            e.printStackTrace();
-            encryptedContractInfo = null;
-        }
+        AESCipher testAES = new AESCipher();
+        String encryptedString = testAES.encrypt(originalString, secretKey);
+        String decryptedString = testAES.decrypt(encryptedString, secretKey);
+        saveDataToFile(encryptedString, decryptedString);
+    }
 
-        if (encryptedContractInfo != null) {
-            String decryptedContractInfo = AESCipher.decrypt(encryptedContractInfo);
-            System.out.println("Decrypted Contract Info: " + "\n  " + decryptedContractInfo);
+    public static void saveDataToFile(String encryptedString, String decryptedString) {
+        try (FileWriter writer = new FileWriter("encrypted_data.txt");
+            BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
+            bufferedWriter.write("Encrypted Data:");
+            bufferedWriter.newLine();
+            bufferedWriter.write(encryptedString);
+            bufferedWriter.newLine();
+            bufferedWriter.newLine();
+            bufferedWriter.write("Decrypted Data:");
+            bufferedWriter.newLine();
+            bufferedWriter.write(decryptedString);
+        } catch (IOException e) {
+            System.err.println("Error saving data to file: " + e.getMessage());
         }
     }
 }
