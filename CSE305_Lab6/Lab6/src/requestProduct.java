@@ -1,15 +1,15 @@
-public abstract class requestProduct {
+public abstract class RequestProduct {
     private String priority;
     private String expireDay;
     private String status;
 
-    public requestProduct(String priority, String expireDay, String status) {
+    public RequestProduct(String priority, String expireDay, String status) {
         this.priority = priority;
         this.expireDay = expireDay;
         this.status = status;
     }
 
-    public requestProduct() {
+    public RequestProduct() {
     }
 
     public String getPriority() {
@@ -37,6 +37,6 @@ public abstract class requestProduct {
     }
 
     public void processRequest(String processRequest) {
-        System.out.println("Processing request: " + processRequest);
+        System.out.println(processRequest);
     }
 }

@@ -1,0 +1,36 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class HighPriorityConcrete extends RequestProduct {
+
+    @Override
+    public void setExpireDay(String expireDay) {
+        // TODO Auto-generated method stub
+        super.setExpireDay(LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE));
+    }
+
+    @Override
+    public void setPriority(String priority) {
+        // TODO Auto-generated method stub
+        super.setPriority("Emergency");
+    }
+
+    @Override
+    public void setStatus(String status) {
+        // TODO Auto-generated method stub
+        super.setStatus("Accept");
+    }
+
+    @Override
+    public void processRequest(String processRequest) {
+        // TODO Auto-generated method stub
+        setPriority("");
+        setStatus("");
+        setExpireDay("");
+        super.processRequest("""
+                Emergency request, our\r
+                Administer will contact you immediately !""" //
+        );
+    }
+
+}
