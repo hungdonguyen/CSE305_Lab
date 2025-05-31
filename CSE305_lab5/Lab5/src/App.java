@@ -5,7 +5,7 @@ import java.io.IOException;
 public class App {
     public static void main(String[] args) throws Exception {
         Client client = new Client();
-        Contract contract = client.returnRentalContract();
+        Contract contract = client.returnRentalContract("C123", "P456", "T789", 1500);
         String contractInfo = contract.printInfo(contract);
 
         String secretKey = "11";

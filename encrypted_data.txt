@@ -1,0 +1,8 @@
+Encrypted Data:
+s106wEMeeQXFDUhEoMP0uE8xYcHry2vOpYo78/4yKtA62tMW0jFHdUzCHfk5PnC6dGXSfnQ/DL6HiKLWMz1vPMqRFUAj0QUlcfFdTS5K4M0=
+
+Decrypted Data:
+Contract ID: C123
+Property ID: P456
+Tenant ID: T789
+Rent Amount: 1500

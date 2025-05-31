@@ -1,11 +1,12 @@
 public class Client {
-    public Contract returnRentalContract() {
+    
+    public Contract returnRentalContract(String contractID, String propertyID, String tenantID, int rentAmount) {
         ContractBuilder contractBuilder = new PermanentContractBuilder();
 
-        return contractBuilder.setContractID("C12333333333333333")
-                .setPropertyID("P45631311313131131")
-                .setTenantID("T78931313131313131313131")
-                .setRentAmount(10011001)
+        return contractBuilder.setContractID(contractID)
+                .setPropertyID(propertyID)
+                .setTenantID(tenantID)
+                .setRentAmount(rentAmount)
                 .signContract();
     }
 
